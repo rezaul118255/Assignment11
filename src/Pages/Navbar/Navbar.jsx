@@ -1,5 +1,7 @@
+
 import React, { useContext } from 'react';
-import logo from '../../assets/images/attachment_87378583.png'
+
+import logo from '../../assets/images/cropped-swing-kids-1.jpg'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { getAuth, signOut } from 'firebase/auth';
@@ -8,7 +10,9 @@ import "./navbar.css"
 
 const Navbar = () => {
     const { user } = useContext(AuthContext);
+    console.log(user)
     const auth = getAuth(app);
+    console.log(auth)
     const userr = auth.currentUser;
 
     const handelLogOut = () => {
@@ -73,7 +77,8 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {
-                    userr && <img className='photo' src={userr.photoURL} alt="" />
+                    userr && <img className='photo' src={userr.photoURL
+                    } alt="" />
                 }
 
 

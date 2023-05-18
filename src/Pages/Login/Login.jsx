@@ -5,11 +5,15 @@ import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+
 
 const Login = () => {
     const { login } = useContext(AuthContext);
     const [user, setUser] = useState(null);
     const [error, setError] = useState('');
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -25,6 +29,17 @@ const Login = () => {
                 setError(error.message)
 
             });
+    }
+    const handelGoogleSignIn = () => {
+        signInWithPopup(auth, provider)
+            .then(result => {
+                const GoogleUser = result.user;
+                setUser(GoogleUser)
+
+            })
+            .catch(error => {
+                setError(error.message);
+            })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -66,10 +81,14 @@ const Login = () => {
                                 <ToastContainer></ToastContainer>
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Login" />
+                                <input className="btn btn-outline btn-success" type="submit" value="Login" />
                             </div>
+                            <div className="form-control mt-6">
+                                <button onClick={handelGoogleSignIn} className="btn btn-outline btn-warning" placeholder='continue with google' />
+                            </div>
+
                         </form>
-                        <p className='my-4 text-center'>New to Educational toys <Link className='text-orange-600 font-bold' to="/register">Register</Link> </p>
+                        <p className='my-4 text-center'>New to Educational toys <Link className='text-orange-200 font-bold' to="/register">Register</Link> </p>
                     </div>
                 </div>
             </div>
