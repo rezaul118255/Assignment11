@@ -1,12 +1,12 @@
 
 import React, { useContext } from 'react';
 import img from '../../assets/images/undraw_access_account_re_8spm.svg'
-// import { AuthContext } from '../../Providers/AuthProvider';
+import { AuthContext } from '../../Providers/AuthProvider';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
 
-    // const { createUser } = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
 
     const handlerRegister = event => {
         event.preventDefault();

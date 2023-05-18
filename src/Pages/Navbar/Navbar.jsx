@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assets/images/attachment_87378583.png'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
+import { getAuth, signOut } from 'firebase/auth';
+import app from '../../Firebase/firebase.config';
+import "./navbar.css"
 
 const Navbar = () => {
+    const { user } = useContext(AuthContext);
+    const auth = getAuth(app);
+    const userr = auth.currentUser;
 
-    // const handleLogOut = () => {
-    //     logOut()
-    //         .then(() => { })
-    //         .catch(error => console.log(error))
-    // }
+    const handelLogOut = () => {
+        signOut(auth)
+            .then(result => {
+                console.log(result)
+                setUser(null)
+
+            })
+            .catch(error => console.log(error))
+    }
 
 
     // const navItems = <>
@@ -31,8 +42,15 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         {/* {navItems} */}
                         <Link className='' to="/">Home</Link>
-                        <Link className='' to="/about">About</Link>
+
                         <Link className='' to="/blog">Blog</Link>
+                        {
+                            user && <Link to="myToys"> MyToys</Link>
+                        }
+                        {
+                            user && <Link to="allToys"> AllToys</Link>
+                        }
+
                     </ul>
                 </div>
                 <Link to="/" className="btn btn-ghost normal-case text-xl">
@@ -42,13 +60,30 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-4">
                     <Link className='' to="/">Home</Link>
-                    <Link className='' to="/about">About</Link>
+
                     <Link className='' to="/blog">Blog</Link>
+                    {
+                        user && <Link to="myToys"> MyToys</Link>
+                    }
+                    {
+                        user && <Link to="allToys"> AllToys</Link>
+                    }
                     {/* {navItems} */}
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className='' to="/login">login</Link>
+                {
+                    userr && <img className='photo' src={userr.photoURL} alt="" />
+                }
+
+
+                {user ?
+                    <button onClick={handelLogOut} variant="primary">Logout</button> :
+                    <Link to="/login">
+                        <Link className='' to="/login">login</Link>
+                    </Link>
+                }
+
 
             </div>
         </div>

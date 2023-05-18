@@ -1,22 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import img from '../../assets/images/undraw_login_re_4vu2.svg'
-// import { AuthContext } from '../../Providers/AuthProvider';
+import { AuthContext } from '../../Providers/AuthProvider';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-    // const { signIn } = useContext(AuthContext);
+    const { login } = useContext(AuthContext);
+    const [user, setUser] = useState(null);
+    const [error, setError] = useState('');
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, email, password)
-        signIn(email, password)
+        login(email, password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                const loggedUser = result.user;
+                setUser(loggedUser);
             })
-            .catch(error => console.log(error));
+            .catch(error => {
+                setError(error.message)
+
+            });
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -42,6 +50,20 @@ const Login = () => {
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
+                            </div>
+                            <div className='text-amber-600'>
+                                {
+                                    <p>{error}</p>
+                                }
+
+                            </div>
+                            <div>
+                                {
+                                    user && toast('user is found ')
+
+
+                                }
+                                <ToastContainer></ToastContainer>
                             </div>
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Login" />
