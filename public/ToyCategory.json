@@ -1,0 +1,104 @@
+[
+    {
+        "id": 1,
+        "images": "https://cdn.amightygirl.com/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/p/r/primary_science_deluxe_1.jpg",
+        "name": "Science Kits",
+        "products": [
+            {
+                "id": 1,
+                "name": "Chemistry Set",
+                "image": "",
+                "price": 29.99,
+                "rating": 4.5,
+                "category_name": "Science Kits",
+                "available_quantity": 10
+            },
+            {
+                "id": 2,
+                "name": "Microscope Kit",
+                "image": "",
+                "price": 39.99,
+                "rating": 4.2,
+                "category_name": "Science Kits",
+                "available_quantity": 5
+            },
+            {
+                "id": 3,
+                "name": "Astronomy Set",
+                "image": "",
+                "price": 49.99,
+                "rating": 4.8,
+                "category_name": "Science Kits",
+                "available_quantity": 8
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Math Learning Toys",
+        "images": "https://www.shutterstock.com/image-photo/child-kid-colorful-education-toys-260nw-1487750327.jpg",
+        "products": [
+            {
+                "id": 4,
+                "name": "Math Puzzle",
+                "image": "",
+                "price": 19.99,
+                "rating": 4.3,
+                "category_name": "Math Learning Toys",
+                "available_quantity": 12
+            },
+            {
+                "id": 5,
+                "name": "Counting Abacus",
+                "image": "",
+                "price": 14.99,
+                "rating": 4.6,
+                "category_name": "Math Learning Toys",
+                "available_quantity": 15
+            },
+            {
+                "id": 6,
+                "name": "Geometric Shapes Set",
+                "image": "",
+                "price": 24.99,
+                "rating": 4.7,
+                "category_name": "Math Learning Toys",
+                "available_quantity": 7
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Engineering Kits",
+        "images": "https://www.labkafe.com/storage/robotics-lab.png",
+        "products": [
+            {
+                "id": 7,
+                "name": "Building Blocks Set",
+                "image": "",
+                "price": 34.99,
+                "rating": 4.4,
+                "category_name": "Engineering Kits",
+                "available_quantity": 20
+            },
+            {
+                "id": 8,
+                "name": "Robotics Kit",
+                "image": "",
+                "price": 59.99,
+                "rating": 4.9,
+                "category_name": "Engineering Kits",
+                "available_quantity": 3
+            },
+            {
+                "id": 9,
+                "name": "Electronics Circuit Set",
+                "image": "",
+                "price": 44.99,
+                "rating": 4.6,
+                "category_name": "Engineering Kits",
+                "available_quantity": 6
+            }
+        ]
+    }
+]

@@ -75,17 +75,30 @@ const Navbar = () => {
                     {/* {navItems} */}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end gap-4">
                 {
-                    userr && <img className='photo' src={userr.photoURL
-                    } alt="" />
+                    user && <div className="tooltip" data-tip={userr.displayName}>
+                        {
+                            userr && <img className='photo' src={userr.photoURL} alt="" />
+                        }
+
+                    </div>
                 }
+
+
+                {/* {
+
+                    userr && <img className='photo' src={userr.photoURL} alt="" />
+                } */}
+
+
+
 
 
                 {user ?
                     <button onClick={handelLogOut} variant="primary">Logout</button> :
                     <Link to="/login">
-                        <Link className='' to="/login">login</Link>
+                        <button> <Link className='' to="/login">login</Link></button>
                     </Link>
                 }
 

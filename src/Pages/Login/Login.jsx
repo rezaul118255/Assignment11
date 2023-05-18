@@ -84,7 +84,7 @@ const Login = () => {
                                 <input className="btn btn-outline btn-success" type="submit" value="Login" />
                             </div>
                             <div className="form-control mt-6">
-                                <button onClick={handelGoogleSignIn} className="btn btn-outline btn-warning" placeholder='continue with google' />
+                                <button onClick={handelGoogleSignIn} className="btn btn-outline btn-warning" value="continue with google" placeholder='continue with google' />
                             </div>
 
                         </form>
