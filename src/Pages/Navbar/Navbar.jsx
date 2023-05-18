@@ -10,9 +10,9 @@ import "./navbar.css"
 
 const Navbar = () => {
     const { user } = useContext(AuthContext);
-    console.log(user)
+    // console.log(user)
     const auth = getAuth(app);
-    console.log(auth)
+    // console.log(auth)
     const userr = auth.currentUser;
 
     const handelLogOut = () => {
@@ -54,6 +54,9 @@ const Navbar = () => {
                         {
                             user && <Link to="allToys"> AllToys</Link>
                         }
+                        {
+                            user && <Link to="addToys"> AddToys</Link>
+                        }
 
                     </ul>
                 </div>
@@ -71,6 +74,9 @@ const Navbar = () => {
                     }
                     {
                         user && <Link to="allToys"> AllToys</Link>
+                    }
+                    {
+                        user && <Link to="addToys"> AddToys</Link>
                     }
                     {/* {navItems} */}
                 </ul>

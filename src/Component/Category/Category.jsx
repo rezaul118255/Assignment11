@@ -1,12 +1,15 @@
 import React from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
-const Cateory = () => {
+const Category = ({ category }) => {
+    console.log(category)
+    const { id, name, image } = category
+    console.log(name)
     return (
-        <div className='text-center'>
+        <div>
             <Tabs>
                 <TabList className="flex mx-auto gap-4">
-                    <Tab>Science Kits</Tab>
+                    <Tab>{name}</Tab>
                     <Tab>Math Learning Toys</Tab>
                     <Tab>Engineering Kits</Tab>
                 </TabList>
@@ -26,4 +29,4 @@ const Cateory = () => {
     );
 };
 
-export default Cateory;
+export default Category;
