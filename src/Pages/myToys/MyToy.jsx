@@ -1,56 +1,60 @@
 import React from 'react';
 
-const MyToy = ({ myToy }) => {
-    const { title, price, quantity, sellerName, category, image } = myToy || {};
-    // console.log(myToy)
+
+
+const MyToy = ({ myToy, handleDelete }) => {
+
+    const { title, _id, price, quantity, sellerName, category, image } = myToy || {};
+
+
     return (
 
-        <div >
-            <table className="table w-full">
-                {/* head */}
+        <div>
+            <input type="checkbox" id="my-modal" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
+                    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                    <div className="modal-action">
+                        <label htmlFor="my-modal" className="btn">Yay!</label>
+                    </div>
+                </div>
+            </div>
 
-                <tbody>
-                    {/* row 1 */}
-                    <tr>
-                        <th>
-                            <label>
-                                <input type="checkbox" className="checkbox" />
-                            </label>
-                        </th>
-                        <td>
-                            <div className="flex items-center space-x-3">
-                                <div className="avatar">
-                                    <div className="mask mask-squircle w-16 h-16">
-                                        <img src={image} alt="Avatar Tailwind CSS Component" />
-                                    </div>
-                                </div>
 
-                            </div>
-                        </td>
-                        {/* <td>
-                            {sellerName}
+            <tr className="table w-full">
+                <th>
+                    <label>
+                        <input type="checkbox" className="checkbox" />
+                    </label>
+                </th>
+                <td>
+                    <div className="flex items-center h-16 w-16 ">
 
-                        </td> */}
-                        <td>
-                            {quantity}
 
-                        </td>
+                        <img src={image} />
 
-                        <td>
+                    </div>
+                </td>
 
-                            <span className="badge badge-ghost badge-sm">{title}</span>
-                        </td>
-                        <td>{category}</td>
-                        <th>
-                            <button className="btn btn-ghost btn-xs">details</button>
-                        </th>
-                    </tr>
-                </tbody>
+                <td>{quantity}</td>
+                <td>{category}</td>
+                <td><span className="badge badge-ghost badge-sm">{title}</span></td>
 
+
+                <td><button > <label htmlFor="my-modal" className="btn">update</label> </button>
+                </td>
+
+                <th><button onClick={() => handleDelete(_id)} className="btn btn-ghost btn-xs">delete</button></th>
+
+
+            </tr>
 
 
 
-            </table>
+
+
+
         </div>
     );
 };

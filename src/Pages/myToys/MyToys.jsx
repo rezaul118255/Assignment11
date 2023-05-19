@@ -20,6 +20,25 @@ const MyToys = () => {
                 setMyToys(data);
             });
     };
+
+
+    const handleDelete = id => {
+        const proceed = confirm('Are You sure you want to delete');
+        if (proceed) {
+            fetch(`http://localhost:5000/allJobs/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        alert('deleted successful');
+                        const remaining = allJobs.filter(allJob => allJob._id !== id);
+                        setMyToys(remaining);
+                    }
+                })
+        }
+    }
     return (
         <div className='container'>
 
@@ -33,35 +52,50 @@ const MyToys = () => {
                 />{" "}
                 <button onClick={handleSearch}>Search</button>
             </div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full">
+                    <thead className="table w-full">
+                        <tr>
+                            <th>
+                                <label>
+                                    <input type="checkbox" className="checkbox" />
+                                </label>
+                            </th>
+                            <th>image</th>
+                            <th>quantity</th>
+                            <th>Category</th>
+                            <th>Product Name</th>
+                            <th>update</th>
+                            <th>Delete</th>
 
 
-                <thead className="table w-full">
-                    <tr>
-                        <th>
-                            <label>
-                                <input type="checkbox" className="checkbox" />
-                            </label>
-                        </th>
-                        <th>image</th>
-                        {/* <th> Seller Name</th> */}
-
-                        <th>quantity</th>
-                        <th>Product Name</th>
 
 
 
-                        <th>Category</th>
-                        <th>Details</th>
-                    </tr>
-                </thead>
+
+
+                        </tr>
+                    </thead>
+                    <tbody className="table w-full">
+                        {
+                            myToys.map((myToy) => <MyToy
+                                key={myToy._id}
+                                myToy={myToy}
+                                handleDelete={handleDelete}
+                            ></MyToy>)
+                        }
+                    </tbody>
+
+                </table>
+
+
+
             </div>
-            {
-                myToys.map((myToy) => <MyToy
-                    key={myToy._id}
-                    myToy={myToy}
-                ></MyToy>)
-            }
+
+
+
+
+
         </div>
     );
 };

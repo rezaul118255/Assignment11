@@ -6,7 +6,7 @@ const Cateorys = () => {
     const [categorys, setCategory] = useState([]);
 
     useEffect(() => {
-        fetch('ToyCategory.json')
+        fetch('http://localhost:5000/allJobs')
             .then(res => res.json())
             .then(data => setCategory(data))
             .catch(error => console.error(error))

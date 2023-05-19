@@ -8,8 +8,10 @@ const Banner = () => {
         <div className="carousel w-full h-[600px]">
             <div id="slide1" className="carousel-item relative w-full">
                 <img src={img1} className="w-full rounded-xl" />
-                <div className="absolute rounded-xl flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
-                    <div className='text-white space-y-7 pl-12 w-1/2'>
+                <div className=" absolute rounded-xl flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
+                    <div data-aos="fade-down"
+                        data-aos-easing="linear"
+                        data-aos-duration="1500" className='text-white space-y-7 pl-12 w-1/2'>
                         <h2 className='text-5xl font-bold'>Here many Category of Math learning toy are available</h2>
                         <p>From here you can easily buy all the maths learning material you want. So don't delay and buy now or visit</p>
                         <div>

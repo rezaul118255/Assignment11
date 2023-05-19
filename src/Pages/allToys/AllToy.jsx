@@ -1,10 +1,42 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
+
+
 
 const AllToy = ({ toy }) => {
-    const { title, price, quantity, sellerName, category, image } = toy || {};
-    // console.log(title, price)
+    const { user } = useContext(AuthContext)
+    const { title, _id, price, quantity, sellerName, category, image } = toy || {};
+
+    const handleDetails = _id => {
+
+
+        fetch(`http://localhost:5000/allJobs/${_id}`)
+
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+
+            })
+
+    }
+
+
+
     return (
         <div >
+            {/* Put this part before </body> tag */}
+            <input type="checkbox" id="my-modal" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
+                    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                    <div className="modal-action">
+                        <label htmlFor="my-modal" className="btn">Yay!</label>
+                    </div>
+                </div>
+            </div>
+
+
             <table className="table w-full">
                 {/* head */}
 
@@ -37,7 +69,9 @@ const AllToy = ({ toy }) => {
                         </td>
                         <td>{category}</td>
                         <th>
-                            <button className="btn btn-ghost btn-xs">details</button>
+                            <button onClick={() => handleDetails(_id)}>  <label htmlFor="my-modal" className="btn">details</label>
+                            </button>
+
                         </th>
                     </tr>
                 </tbody>

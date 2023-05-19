@@ -1,37 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
+import img from "../../assets/images/undraw_data_processing_yrrv.svg"
 import "./AddToys.css";
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const AddToys = () => {
     const { user } = useContext(AuthContext);
     const [selectedOption, setSelectedOption] = useState(null);
-    // const onSubmit = (data) => {
-    //     data.skills = selectedOption;
 
-    //     fetch("http://localhost:5000/postJob", {
-    //         method: "POST",
-    //         headers: { "Content-Type": "application/json" },
-    //         body: JSON.stringify(data),
-    //     })
-    //         .then((res) => res.json())
-    //         .then((result) => {
-    //             console.log(result);
-    //         });
-    //     console.log(data);
-    // };
-
-    // console.log(selectedOption);
-    // const options = [
-    //     { value: "JavaScript", label: "JavaScript" },
-    //     { value: "C++", label: "C++" },
-    //     { value: "HTML", label: "HTML" },
-    //     { value: "CSS", label: "CSS" },
-    //     { value: "React", label: "React" },
-    //     { value: "Node", label: "Node" },
-    //     { value: "MongoDB", label: "MongoDB" },
-    //     { value: "Redux", label: "Redux" },
-    // ];
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         fetch('http://localhost:5000/addToys', {
@@ -46,21 +22,21 @@ const AddToys = () => {
     };
     return (
         <div className="add-job-container">
-            <div className="add-job row">
-                <div className="col-md-8">
+            <div className="add-job row flex ">
+                <div className="col-md-8 w-9/12">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {errors.exampleRequired && <span>This field is required</span>}
                         <input
                             className="text-input"
                             {...register("title")}
                             placeholder="title"
-                            defaultValue="ProductName"
+
                         />
                         <input
                             className="text-input"
                             {...register("price", { required: true })}
                             placeholder="price"
-                            defaultValue="price"
+
                         />
                         <input
                             className="text-input"
@@ -81,7 +57,7 @@ const AddToys = () => {
                             {...register("image")}
                             placeholder="image link"
                             type="url"
-                            defaultValue="https://images.pexels.com/photos/2528118/pexels-photo-2528118.jpeg?auto=compress&cs=tinysrgb&w=600"
+
                         />
                         <input
                             className="text-input"
@@ -105,20 +81,7 @@ const AddToys = () => {
                             defaultValue={user?.displayName}
                             type="text"
                         />
-                        {/* <CreatableSelect
-                            className="w-75"
-                            defaultValue={selectedOption}
-                            onChange={setSelectedOption}
-                            options={options}
-                            isMulti
-                        /> */}
 
-                        {/* <Select
-                defaultValue={selectedOption}
-                onChange={setSelectedOption}
-                options={options}
-                isMulti
-              /> */}
                         <input
                             className="text-input"
                             {...register("description")}
@@ -129,11 +92,11 @@ const AddToys = () => {
                 </div>
 
                 <div className="col-md-4">
-                    {/* <img
-                        className="w-100"
-                        src="https://i.ibb.co/rthZ75K/pngtree-job-vacancy-with-join-our-team-recruitment-vector-design-png-image-6419066-removebg-preview.png"
+                    <img
+                        className="w-100 h-80"
+                        src={img}
                         alt=""
-                    /> */}
+                    />
                 </div>
             </div>
         </div>

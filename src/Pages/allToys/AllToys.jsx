@@ -20,6 +20,7 @@ const AllToys = () => {
                 setAllToys(data);
             });
     };
+
     return (
         <div>
             <div className='text-center  text-4xl mb-4 '>
@@ -57,6 +58,7 @@ const AllToys = () => {
                             <AllToy
                                 key={toy._id}
                                 toy={toy}
+
                             ></AllToy>
                         )
                     }
