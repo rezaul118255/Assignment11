@@ -2,9 +2,9 @@ import React from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 const Category = ({ category }) => {
-    console.log(category)
+
     const { id, name, image } = category
-    console.log(name)
+
     return (
         <div>
             <Tabs>

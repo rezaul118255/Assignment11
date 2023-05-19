@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Category from '../Category/Category';
 
 const Cateorys = () => {
-    const { categorys, setCategory } = useState([]);
+    const [categorys, setCategory] = useState([]);
 
     useEffect(() => {
         fetch('ToyCategory.json')
