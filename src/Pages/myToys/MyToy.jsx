@@ -4,22 +4,51 @@ const MyToy = ({ myToy }) => {
     const { title, price, quantity, sellerName, category, image } = myToy || {};
     // console.log(myToy)
     return (
-        <div className="overflow-x-auto">
-            <table className="table table-compact w-full">
+
+        <div >
+            <table className="table w-full">
+                {/* head */}
 
                 <tbody>
+                    {/* row 1 */}
                     <tr>
-                        <th>{length + 1}</th>
-                        <td>{title}</td>
-                        <td>{sellerName}</td>
-                        <td>{quantity}</td>
+                        <th>
+                            <label>
+                                <input type="checkbox" className="checkbox" />
+                            </label>
+                        </th>
+                        <td>
+                            <div className="flex items-center space-x-3">
+                                <div className="avatar">
+                                    <div className="mask mask-squircle w-16 h-16">
+                                        <img src={image} alt="Avatar Tailwind CSS Component" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        {/* <td>
+                            {sellerName}
+
+                        </td> */}
+                        <td>
+                            {quantity}
+
+                        </td>
+
+                        <td>
+
+                            <span className="badge badge-ghost badge-sm">{title}</span>
+                        </td>
                         <td>{category}</td>
-                        <td>{price}</td>
-                        <td><button>view details</button></td>
-
+                        <th>
+                            <button className="btn btn-ghost btn-xs">details</button>
+                        </th>
                     </tr>
-
                 </tbody>
+
+
+
 
             </table>
         </div>

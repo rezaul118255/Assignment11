@@ -72,12 +72,11 @@ const Navbar = () => {
                     {
                         user && <Link to="myToys"> MyToys</Link>
                     }
-                    {
-                        user && <Link to="allToys"> AllToys</Link>
-                    }
+
                     {
                         user && <Link to="addToys"> AddToys</Link>
                     }
+                    <Link to="allToys"> AllToys</Link>
                     {/* {navItems} */}
                 </ul>
             </div>
