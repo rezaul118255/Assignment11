@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AllToy = ({ toy }) => {
-    const { title, price, quantity, sellerName, category, image } = toy
+    const { title, price, quantity, sellerName, category, image } = toy || {};
     // console.log(title, price)
     return (
         <div >
@@ -19,7 +19,7 @@ const AllToy = ({ toy }) => {
                         <td>
                             <div className="flex items-center space-x-3">
                                 <div className="avatar">
-                                    <div className="mask mask-squircle w-24 h-24">
+                                    <div className="mask mask-squircle w-16 h-16">
                                         <img src={image} alt="Avatar Tailwind CSS Component" />
                                     </div>
                                 </div>
