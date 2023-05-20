@@ -54,9 +54,9 @@ const router = createBrowserRouter([
         element: <Blog></Blog>,
       },
       {
-        path: '/allJobs/:id',
+        path: '/allJobs/:_id',
         element: <CategoryDetails></CategoryDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allJobs/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/allJobs/${params._id}`)
       }
 
 

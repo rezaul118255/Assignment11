@@ -16,7 +16,7 @@ const Category = ({ cate }) => {
             </div>
             <div className='flex gap-4'>
                 <h1>price: {price}</h1>
-                <Link to={`category/${_id}`}><button className='btn btn-primary'>view Details</button></Link>
+                <Link to={`allJobs/${_id}`}><button className='btn btn-primary'>view Details</button></Link>
             </div>
 
 

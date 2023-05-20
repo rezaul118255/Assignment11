@@ -5,6 +5,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 
 const AllToy = ({ toy }) => {
     const { user } = useContext(AuthContext)
+    console.log(user)
     const { title, _id, rating, price, quantity, sellerName, category, image } = toy || {};
 
     const handleDetails = _id => {
@@ -89,3 +90,4 @@ const AllToy = ({ toy }) => {
 };
 
 export default AllToy;
+
