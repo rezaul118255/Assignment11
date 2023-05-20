@@ -8,12 +8,12 @@ const AllToys = () => {
     const [myToys, setAllToys] = useState([])
     const [searchText, setSearchText] = useState("");
     useEffect(() => {
-        fetch('http://localhost:5000/allJobs')
+        fetch('https://educational-toys-server-theta.vercel.app/allJobs')
             .then(res => res.json())
             .then(data => setToys(data))
     }, [])
     const handleSearch = () => {
-        fetch(`http://localhost:5000/getToysByText/${searchText}`)
+        fetch(`https://educational-toys-server-theta.vercel.app/getToysByText/${searchText}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);

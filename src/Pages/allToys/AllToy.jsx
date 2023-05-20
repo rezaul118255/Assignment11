@@ -10,7 +10,7 @@ const AllToy = ({ toy }) => {
     const handleDetails = _id => {
 
 
-        fetch(`http://localhost:5000/allJobs/${_id}`)
+        fetch(`https://educational-toys-server-theta.vercel.app/allJobs/${_id}`)
 
             .then(res => res.json())
             .then(data => {

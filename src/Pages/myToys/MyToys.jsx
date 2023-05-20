@@ -7,13 +7,13 @@ const MyToys = () => {
     const [myToys, setMyToys] = useState([])
     const [searchText, setSearchText] = useState("");
     useEffect(() => {
-        fetch(`http://localhost:5000/allJobs/${user?.email}`)
+        fetch(`https://educational-toys-server-theta.vercel.app/allJobs/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
     }, [user])
 
     const handleSearch = () => {
-        fetch(`http://localhost:5000/getToysByText/${searchText}`)
+        fetch(`https://educational-toys-server-theta.vercel.app/getToysByText/${searchText}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -25,7 +25,7 @@ const MyToys = () => {
     const handleDelete = id => {
         const proceed = confirm('Are You sure you want to delete');
         if (proceed) {
-            fetch(`http://localhost:5000/allJobs/${id}`, {
+            fetch(`https://educational-toys-server-theta.vercel.app/allJobs/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

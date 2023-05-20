@@ -1,29 +1,23 @@
 import React from 'react';
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import "./Categori.css"
+const Category = ({ cate }) => {
 
-const Category = ({ category }) => {
-
-    const { id, name, image } = category
+    const { image, price, category, deadline } = cate
 
     return (
-        <div>
-            <Tabs>
-                <TabList className="flex mx-auto gap-4">
-                    <Tab>{name}</Tab>
-                    <Tab>Math Learning Toys</Tab>
-                    <Tab>Engineering Kits</Tab>
-                </TabList>
+        <div className='card grid-container'>
+            <div className='h-64 w-64' >
+                <img src={image} alt="" />
+            </div>
+            <div>
+                <h4> Category:{category}</h4>
+                <h4>Publised date:{deadline}</h4>
+            </div>
+            <div className='flex gap-4'>
+                <h1>price: {price}</h1>
+                <button className='btn btn-primary'>view Details</button>
+            </div>
 
-                <TabPanel>
-
-                </TabPanel>
-                <TabPanel>
-                    <h2>Any content 2</h2>
-                </TabPanel>
-                <TabPanel>
-                    <h2>Any content 3</h2>
-                </TabPanel>
-            </Tabs>
 
         </div>
     );
