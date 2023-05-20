@@ -17,10 +17,12 @@ import AllToys from './Pages/allToys/AllToys.jsx';
 import Blog from './Pages/blog/Blog.jsx';
 import AllToysDetails from './Pages/addToys/AllToysDetails.jsx';
 import CategoryDetails from './Component/CategoryDetails/CategoryDetails.jsx';
+import ErrorPage from './Component/ErrorPage/ErrorPage.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
