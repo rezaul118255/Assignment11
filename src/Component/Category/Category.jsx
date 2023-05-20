@@ -2,7 +2,7 @@ import React from 'react';
 import "./Categori.css"
 const Category = ({ cate }) => {
 
-    const { image, price, category, deadline } = cate
+    const { image, price, category, deadline } = cate || {};
 
     return (
         <div className='card grid-container'>

@@ -6,21 +6,22 @@ import Category from '../Category/Category';
 
 const Cateorys = () => {
     const [categorys, setCategory] = useState([]);
-    console.log(categorys)
+    // console.log(categorys)
 
-    const [activeTab, setActiveTab] = useState("dfsd");
+    const [activeTab, setActiveTab] = useState("");
+    useEffect(() => {
+        fetch(`http://localhost:5000/allJobs/${activeTab}`)
+            .then(res => res.json())
+            .then(data => setCategory(data))
+            .catch(error => console.error(error))
+    }, [activeTab])
 
     const handleTabClick = (tabName) => {
         setActiveTab(tabName);
     };
 
 
-    useEffect(() => {
-        fetch('http://localhost:5000/allJobs')
-            .then(res => res.json())
-            .then(data => setCategory(data))
-            .catch(error => console.error(error))
-    }, [])
+
     return (
         <div>
             <h1 className="text-5xl text-center mt-5 p-5">Category of Toys's</h1>
@@ -42,11 +43,11 @@ const Cateorys = () => {
                             Math Learning Toys
                         </div>
                         <div
-                            onClick={() => handleTabClick("Engineering Toys")}
-                            className={`tab  tab2 Math Learning Toys ${activeTab == "Engineering Toys" ? "  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ..." : ""
+                            onClick={() => handleTabClick("Engineering Kits")}
+                            className={`tab  tab2 Engineering Kits ${activeTab == "Engineering Kits" ? "  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ..." : ""
                                 }`}
                         >
-                            Engineering Toys
+                            Engineering Kits
                         </div>
                     </div>
                 </div>
