@@ -1,8 +1,9 @@
 import React from 'react';
 import "./Categori.css"
+import { Link } from 'react-router-dom';
 const Category = ({ cate }) => {
 
-    const { image, price, category, deadline } = cate || {};
+    const { _id, image, price, category, deadline } = cate || {};
 
     return (
         <div className='card grid-container'>
@@ -15,7 +16,7 @@ const Category = ({ cate }) => {
             </div>
             <div className='flex gap-4'>
                 <h1>price: {price}</h1>
-                <button className='btn btn-primary'>view Details</button>
+                <Link to={`category/${_id}`}><button className='btn btn-primary'>view Details</button></Link>
             </div>
 
 

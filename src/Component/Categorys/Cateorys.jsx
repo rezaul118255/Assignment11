@@ -8,7 +8,7 @@ const Cateorys = () => {
     const [categorys, setCategory] = useState([]);
     // console.log(categorys)
 
-    const [activeTab, setActiveTab] = useState("");
+    const [activeTab, setActiveTab] = useState("Science Kits");
     useEffect(() => {
         fetch(`http://localhost:5000/allJobs/${activeTab}`)
             .then(res => res.json())
@@ -47,7 +47,7 @@ const Cateorys = () => {
                             className={`tab  tab2 Engineering Kits ${activeTab == "Engineering Kits" ? "  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ..." : ""
                                 }`}
                         >
-                            Engineering Kits
+                            <span className='text-1xl text-neutral-950 mb-2'> Engineering Kits</span>
                         </div>
                     </div>
                 </div>

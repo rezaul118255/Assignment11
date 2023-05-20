@@ -16,6 +16,7 @@ import MyToys from './Pages/myToys/MyToys.jsx';
 import AllToys from './Pages/allToys/AllToys.jsx';
 import Blog from './Pages/blog/Blog.jsx';
 import AllToysDetails from './Pages/addToys/AllToysDetails.jsx';
+import CategoryDetails from './Component/CategoryDetails/CategoryDetails.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
         path: "blog",
         element: <Blog></Blog>,
       },
+      {
+        path: '/allJobs/:id',
+        element: <CategoryDetails></CategoryDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/allJobs/${params.id}`)
+      }
 
 
 

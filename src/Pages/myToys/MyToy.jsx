@@ -1,8 +1,10 @@
 import React from 'react';
+// import UpdateToys from './UpdateToys';
 
 
 
 const MyToy = ({ myToy, handleDelete }) => {
+    // const [modalShow, setModalShow] = React.useState(false);
 
     const { title, _id, price, quantity, sellerName, category, image } = myToy || {};
 
@@ -10,16 +12,7 @@ const MyToy = ({ myToy, handleDelete }) => {
     return (
 
         <div>
-            <input type="checkbox" id="my-modal" className="modal-toggle" />
-            <div className="modal">
-                <div className="modal-box">
-                    <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
-                    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-                    <div className="modal-action">
-                        <label htmlFor="my-modal" className="btn">Yay!</label>
-                    </div>
-                </div>
-            </div>
+
 
 
             <tr className="table w-full">
@@ -42,7 +35,8 @@ const MyToy = ({ myToy, handleDelete }) => {
                 <td><span className="badge badge-ghost badge-sm">{title}</span></td>
 
 
-                <td><button > <label htmlFor="my-modal" className="btn">update</label> </button>
+                <td><button  > update
+                </button>
                 </td>
 
                 <th><button onClick={() => handleDelete(_id)} className="btn btn-ghost btn-xs">delete</button></th>
@@ -60,3 +54,8 @@ const MyToy = ({ myToy, handleDelete }) => {
 };
 
 export default MyToy;
+
+
+
+
+

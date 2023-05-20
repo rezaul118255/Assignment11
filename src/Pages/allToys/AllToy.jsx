@@ -5,7 +5,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 
 const AllToy = ({ toy }) => {
     const { user } = useContext(AuthContext)
-    const { title, _id, price, quantity, sellerName, category, image } = toy || {};
+    const { title, _id, rating, price, quantity, sellerName, category, image } = toy || {};
 
     const handleDetails = _id => {
 
@@ -60,6 +60,10 @@ const AllToy = ({ toy }) => {
                         </td>
                         <td>
                             {sellerName}
+
+                        </td>
+                        <td>
+                            {rating}
 
                         </td>
 
