@@ -15,10 +15,11 @@ import AddToys from './Pages/addToys/AddToys.jsx';
 import MyToys from './Pages/myToys/MyToys.jsx';
 import AllToys from './Pages/allToys/AllToys.jsx';
 import Blog from './Pages/blog/Blog.jsx';
-import AllToysDetails from './Pages/addToys/AllToysDetails.jsx';
+// import AllToysDetails from './Pages/addToys/AllToysDetails.jsx';
 import CategoryDetails from './Component/CategoryDetails/CategoryDetails.jsx';
 import ErrorPage from './Component/ErrorPage/ErrorPage.jsx';
 import PrivateRoutes from './Pages/PrivateRoutes/PrivateRoutes.jsx';
+// import Update from './Pages/myToys/Update.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -54,10 +55,15 @@ const router = createBrowserRouter([
         path: "blog",
         element: <Blog></Blog>,
       },
+      // {
+      //   path: '/update/:id',
+      //   element: <Update></Update>,
+      //   loader: ({ params }) => fetch(`http://localhost:5000/allJobs/${params.id}`)
+      // },
       {
-        path: '/allToys/:_id',
+        path: '/allJobs/:id',
         element: <PrivateRoutes><CategoryDetails></CategoryDetails></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allJobs/${params._id}`)
+        // loader: ({ params }) => fetch(`http://localhost:5000/allJobs/${params.id}`)
       }
 
 

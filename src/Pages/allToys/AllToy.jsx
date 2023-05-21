@@ -3,6 +3,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 
 
 
+
 const AllToy = ({ toy }) => {
     const { user } = useContext(AuthContext)
     // console.log(user)
@@ -11,7 +12,7 @@ const AllToy = ({ toy }) => {
 
     const handleDetails = () => {
         useEffect(() => {
-            fetch(`http://localhost:5000/allJobs/${_id}`)
+            fetch(`https://educational-toys-923a6.web.app/allJobs/${_id}`)
 
                 .then(res => res.json())
                 .then(data => {
@@ -79,7 +80,7 @@ const AllToy = ({ toy }) => {
                         </td>
                         <td>{category}</td>
                         <th>
-                            <button onClick={(_id) => handleDetails(_id)}>  <label htmlFor="my-modal" className="btn">details</label>
+                            <button onClick={() => handleDetails(_id)}>  <label htmlFor="my-modal" className="btn">details</label>
                             </button>
 
                         </th>

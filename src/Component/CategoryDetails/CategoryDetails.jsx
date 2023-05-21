@@ -4,10 +4,11 @@ import { useLoaderData, useParams } from 'react-router-dom';
 const CategoryDetails = () => {
 
 
-    const { _id } = useParams()
-    const toysCategory = useLoaderData(_id)
-    // const { _id, image, price, category, deadline } = toysCategory
-    // console.log(_id)
+    const { id } = useParams()
+    const toysCategory = useLoaderData(id)
+    console.log(toysCategory)
+    const { _id, image, price, category, deadline } = toysCategory
+    console.log(_id)
     return (
         <div>
             {
