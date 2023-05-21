@@ -10,7 +10,7 @@ const Cateorys = () => {
 
     const [activeTab, setActiveTab] = useState("Science Kits");
     useEffect(() => {
-        fetch(`http://localhost:5000/allJobs/${activeTab}`)
+        fetch(`https://educational-toys-server-theta.vercel.app/allJobs/${activeTab}`)
             .then(res => res.json())
             .then(data => setCategory(data))
             .catch(error => console.error(error))

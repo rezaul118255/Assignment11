@@ -18,6 +18,7 @@ import Blog from './Pages/blog/Blog.jsx';
 import AllToysDetails from './Pages/addToys/AllToysDetails.jsx';
 import CategoryDetails from './Component/CategoryDetails/CategoryDetails.jsx';
 import ErrorPage from './Component/ErrorPage/ErrorPage.jsx';
+import PrivateRoutes from './Pages/PrivateRoutes/PrivateRoutes.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -54,8 +55,8 @@ const router = createBrowserRouter([
         element: <Blog></Blog>,
       },
       {
-        path: '/allJobs/:_id',
-        element: <CategoryDetails></CategoryDetails>,
+        path: '/allToys/:_id',
+        element: <PrivateRoutes><CategoryDetails></CategoryDetails></PrivateRoutes>,
         loader: ({ params }) => fetch(`http://localhost:5000/allJobs/${params._id}`)
       }
 

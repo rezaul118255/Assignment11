@@ -130,7 +130,7 @@ const AddToys = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/addToys', {
+        fetch('https://educational-toys-server-theta.vercel.app/addToys', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

@@ -1,23 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 
 
 const AllToy = ({ toy }) => {
     const { user } = useContext(AuthContext)
-    console.log(user)
+    // console.log(user)
+    const [toys, settoys] = useState()
     const { title, _id, rating, price, quantity, sellerName, category, image } = toy || {};
 
-    const handleDetails = _id => {
+    const handleDetails = () => {
+        useEffect(() => {
+            fetch(`http://localhost:5000/allJobs/${_id}`)
+
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+
+                })
+
+        }, [])
 
 
-        fetch(`https://educational-toys-server-theta.vercel.app/allJobs/${_id}`)
 
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-
-            })
 
     }
 
@@ -74,7 +79,7 @@ const AllToy = ({ toy }) => {
                         </td>
                         <td>{category}</td>
                         <th>
-                            <button onClick={() => handleDetails(_id)}>  <label htmlFor="my-modal" className="btn">details</label>
+                            <button onClick={(_id) => handleDetails(_id)}>  <label htmlFor="my-modal" className="btn">details</label>
                             </button>
 
                         </th>
