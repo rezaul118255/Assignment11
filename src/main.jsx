@@ -62,6 +62,7 @@ const router = createBrowserRouter([
       // },
 
       // all jobs
+      //   all toys add
       {
         path: '/allJobs/:id',
         element: <PrivateRoutes><CategoryDetails></CategoryDetails></PrivateRoutes>,
